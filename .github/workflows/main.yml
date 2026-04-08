@@ -13,11 +13,11 @@ jobs:
         steps:
               #esse primeiro passo é onde o nosso repositório será clonado na máquina disponibilizada pelo Github
             - name: Sincronizando com o Github
-              uses: actions/checkout@v4
+              uses: actions/checkout@v3
               #processo de transferência dos arquivos da maquina do Github 
               #para o nosso servidor onde a aplicação será publicada
             - name: Publicando
-              uses: SamKirkland/web-deploy@v2
+              uses: SamKirkland/web-deploy@v1
               with:
                 #host da nossa máquina
                 target-server: ${{ secrets.host }}
@@ -26,7 +26,7 @@ jobs:
                 #chave de acesso da nossa máquina
                 private-ssh-key: ${{ secrets.key }}
                 #caminho na nossa máquina para onde os arquivos serão transferidos
-                destination-path: /home/ubuntu/agora-vai-vnic/
+                destination-path: /home/ubuntu/sistema
               #feito a transferência dos arquivos, precisamos dar uma restart no PM2 
               #para que ele suba os novos arquivos
               #para isso iremos utilizar uma conexão SSH para rodarmos o comandos restart do PM2
