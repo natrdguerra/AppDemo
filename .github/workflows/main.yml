@@ -13,11 +13,11 @@ jobs:
         steps:
               #esse primeiro passo é onde o nosso repositório será clonado na máquina disponibilizada pelo Github
             - name: Sincronizando com o Github
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
               #processo de transferência dos arquivos da maquina do Github 
               #para o nosso servidor onde a aplicação será publicada
             - name: Publicando
-              uses: SamKirkland/web-deploy@v1
+              uses: SamKirkland/web-deploy@v2
               with:
                 #host da nossa máquina
                 target-server: ${{ secrets.host }}
